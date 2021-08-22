@@ -111,6 +111,26 @@ function Hello(props){
 }
 
 ```
+#### Example with usage of class element
+
+> Define a new Class, example ExampleClass
+```JSX
+import { Component } from "react";
+class ExampleClass extends Component {
+  render() {
+    return <div>This is an Example Class !</div>;
+  }
+}
+
+export default ExampleClass;
+```
+
+> Invoke the class, it would automatically look for the render method
+
+```JSX
+ReactDOM.render(<ExampleClass />, document.getElementById("root"));
+```
+
 
 ### Useful Tips:
 
@@ -138,11 +158,13 @@ function Button() {
 
 ### Mapping of HTML element with JSX
 > HTML
+
 ```html
   <label for="name" class="header" style="background-color: yellow"> Display Text </label>
 ```
   
 > JSX
+
 ```JSX
   <label htmlFor="name" className="highlight" style={{backgroundColor: "yellow"}}> Display Text </label> 
 ```
@@ -150,4 +172,29 @@ function Button() {
 * HTML expects a css element for the label ```style```  <b> Vs. </b> JSX expects json like structure for style
 * JSX : attribute names are written as camelCase. ```for``` and ```class``` are javascript reserved attribute names, hence JSX uses ```htmlFor``` and ```className``` as JSX attribute names 
   
+* React ignores/ escapes by default any content such as html as value of html, this prevents Cross site scripting attack. But there is a way to send it, avoid it as much as possible
+  
+* JSX can be highly nested and is necessary to represent complex html pages. Child elements can be accessed using ```props.children```
+* Child elements can be displayed using conditional displayed. ```ConditionalDisplay(props)``` is a React component used for this. Example -> 
 
+```JSX
+  
+const state = {
+  showVal: true,
+};
+
+function ConditionalDisplay(props) {
+  return <div>{props.isVisible ? props.children : null}</div>;
+}
+
+ConditionalDisplay.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+};
+ 
+<ConditionalDisplay isVisible={state.showVal}>
+   <h1>A <span>Home</span></h1>
+   <Home/>
+</ConditionalDisplay>
+  
+```
+  
