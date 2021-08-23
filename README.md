@@ -154,26 +154,6 @@ function Button() {
   return <button onClick={() => setCounter(counter+1)} > {counter}</button>; 
 }
 ```
-
-
-### Mapping of HTML element with JSX
-> HTML
-
-```html
-  <label for="name" class="header" style="background-color: yellow"> Display Text </label>
-```
-  
-> JSX
-
-```JSX
-  <label htmlFor="name" className="highlight" style={{backgroundColor: "yellow"}}> Display Text </label> 
-```
-  
-* HTML expects a css element for the label ```style```  <b> Vs. </b> JSX expects json like structure for style
-* JSX : attribute names are written as camelCase. ```for``` and ```class``` are javascript reserved attribute names, hence JSX uses ```htmlFor``` and ```className``` as JSX attribute names 
-  
-* React ignores/ escapes by default any content such as html as value of html, this prevents Cross site scripting attack. But there is a way to send it, avoid it as much as possible
-  
 * JSX can be highly nested and is necessary to represent complex html pages. Child elements can be accessed using ```props.children```
 * Child elements can be displayed using conditional displayed. ```ConditionalDisplay(props)``` is a React component used for this. Example -> 
 
@@ -197,4 +177,58 @@ ConditionalDisplay.propTypes = {
 </ConditionalDisplay>
   
 ```
+
+* to pass multiple attributes as state, spread format is used. Example:
+
+```JSX
+// Use Three dots to indicate there are multiple variables in the argument
+<FunctionName {...stateVariableName}/>  
+```
   
+
+### Mapping of HTML element with JSX
+> HTML
+
+```html
+  <label for="name" class="header" style="background-color: yellow"> Display Text </label>
+```
+  
+> JSX
+
+```JSX
+  <label htmlFor="name" className="highlight" style={{backgroundColor: "yellow"}}> Display Text </label> 
+```
+  
+* HTML expects a css element for the label ```style```  <b> Vs. </b> JSX expects json like structure for style
+* JSX : attribute names are written as camelCase. ```for``` and ```class``` are javascript reserved attribute names, hence JSX uses ```htmlFor``` and ```className``` as JSX attribute names 
+  
+* React ignores/ escapes by default any content such as html as value of html, this prevents Cross site scripting attack. But there is a way to send it, avoid it as much as possible
+  
+
+### Different Types of Events Supported by React
+#### DOM Events: Events created by the browser
+* Button click event, change event, text input, form submission -> React <strong>SynthenticEvent</strong> object uses this to handle DOM events
+* Example of Event handling :
+```JSX
+function Events(props) {
+  const clickHandler = console.log;
+  return <button onClick={clickHandler}>Click Here</button>;
+}
+
+ReactDOM.render(
+  <Events />,
+  document.getElementById("root")
+);
+```
+* Sometimes, it is important to prevent default browser behavior while react is handling DOM event. ```preventDefault()``` method is used for the same. For example in a single webpage, only for partial submission of data, we want to disable form submission that results in page reloading. Example code below ->
+
+```JSX
+function NoCheck() {
+  return (
+    <input type="checkbox" onClick={(e) => {
+        e.preventDefault();
+      }}
+    />
+  );
+}
+```
