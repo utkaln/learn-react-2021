@@ -232,3 +232,40 @@ function NoCheck() {
   );
 }
 ```
+#### Component Events: Domain specific events done at a higher abstract. e.g. task added, application state changed
+* Called by passing function as prop, used to get data out of a component
+* Example of combination of DOM Event (clickHandler) and Component Event (onEvenClick) below. This checks for number of clicks and logs to console on every even count of clicks => 
+  
+```JSX
+class EventCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { clicks: 0 };
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+  render() {
+    return (
+      <div onClick={this.clickHandler}>
+        This div has been clicked {this.state.clicks} times.
+      </div>
+    );
+  }
+
+  clickHandler(event) {
+    const clickNew = this.state.clicks + 1;
+    this.setState({ clicks: clickNew });
+    if (clickNew % 2 === 0) {
+      this.props.onEvenClick(clickNew);
+    }
+  }
+}
+  
+ReactDOM.render(
+  <EventCounter
+    onEvenClick={(data) => {
+      console.log(`Even clicked : ${data} `);
+    }}
+  />,
+  document.getElementById("root")
+);
+```
