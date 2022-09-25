@@ -10,18 +10,6 @@ body {
   color: #222;
 }
 
-h2 {
-  color: red;
-}
-
-h3 {
-  color: blue;
-}
-
-h4 {
-  color: grey;
-}
-
 .memberlist{
   width: 90vw;
   max-width: 1170px;
@@ -47,5 +35,9 @@ h4 {
 }
 
 .member h3 {
+  margin-top: 0.5rem;
+}
+
+.member p {
   margin-top: 0.5rem;
 }
