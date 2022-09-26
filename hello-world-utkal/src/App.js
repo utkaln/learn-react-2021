@@ -1,12 +1,10 @@
-
-import Setup from './useStateArrayEx';
+import Setup from "./useStateCounter";
 function App() {
   return (
     <div className="container">
-      <Setup/>
+      <Setup />
     </div>
-  ); 
+  );
 }
 
 export default App;
-
