@@ -1,12 +1,12 @@
 
+import Setup from './useStateArrayEx';
 function App() {
   return (
-    <div className="App">
-      <h2>Welcome to Washington DC Chapter </h2>
+    <div className="container">
+      <Setup/>
     </div>
-  );
+  ); 
 }
-
 
 export default App;
 
