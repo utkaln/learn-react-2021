@@ -1,4 +1,4 @@
-import Setup from "./useStateCounter";
+import Setup from "./useEffectExample";
 function App() {
   return (
     <div className="container">
