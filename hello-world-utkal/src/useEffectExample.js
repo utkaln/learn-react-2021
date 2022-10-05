@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react";
 const UseEffectExample = () => {
   const [counterValue, setCounterValue] = useState(0);
   useEffect(() => {
-    console.log("Use Effect Called");
     if (counterValue > 0) {
-      document.title = `New Messages${counterValue}`;
+      document.title = `New Messages (${counterValue})`;
     }
-  });
-  console.log("Component Rendered");
+  }, [counterValue]);
+
   return (
     <>
       <h2>Example of useEffect</h2>
+      <h1>{counterValue}</h1>
+      <button
+        className="btn"
+        onClick={() => {
+          setCounterValue(counterValue + 1);
+        }}
+      >
+        Counter
+      </button>
     </>
   );
 };

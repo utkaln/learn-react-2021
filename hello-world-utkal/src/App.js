@@ -1,4 +1,4 @@
-import Setup from "./useEffectExample";
+import Setup from "./useEffectConditional";
 function App() {
   return (
     <div className="container">
