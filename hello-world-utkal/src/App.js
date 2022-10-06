@@ -1,4 +1,4 @@
-import Setup from "./ConditionShow";
+import Setup from "./FormsBasics";
 function App() {
   return (
     <div className="container">
