@@ -1,4 +1,4 @@
-import Setup from "./FormsBasics";
+import Setup from "./FormsMultiInput";
 function App() {
   return (
     <div className="container">

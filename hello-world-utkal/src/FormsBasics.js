@@ -47,7 +47,7 @@ const FormsBasics = () => {
         {users.map((user, index) => {
           const { loginTxt, email } = user;
           return (
-            <div className="item" key={uuidv4()}>
+            <div className="item" key={index}>
               <h3>{loginTxt}</h3>
               <h4>{email}</h4>
             </div>
