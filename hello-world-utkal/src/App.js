@@ -1,4 +1,4 @@
-import Setup from "./FormsMultiInput";
+import Setup from "./useReducerExample";
 function App() {
   return (
     <div className="container">
