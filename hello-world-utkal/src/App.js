@@ -1,4 +1,4 @@
-import Setup from "./useReducerExample";
+import Setup from "./UseContextEx";
 function App() {
   return (
     <div className="container">
