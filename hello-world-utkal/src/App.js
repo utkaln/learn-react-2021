@@ -1,4 +1,4 @@
-import Setup from "./UseContextEx";
+import Setup from "./PropTypeEx";
 function App() {
   return (
     <div className="container">
